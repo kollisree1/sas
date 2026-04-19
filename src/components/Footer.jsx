@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Footer() {
   return (
     <footer className="site-footer">
@@ -5,7 +7,12 @@ export function Footer() {
         <p className="footer-brand">
           © {new Date().getFullYear()} Southern Agentic Systems
         </p>
-        <p className="footer-meta">Practical AI upskilling · Agentic systems</p>
+        <p className="footer-links">
+          <Link to="/services">Services</Link>
+        </p>
+        <p className="footer-meta">
+          Architectural blueprint for the agentic era · SAS
+        </p>
       </div>
     </footer>
   );

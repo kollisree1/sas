@@ -1,16 +1,61 @@
-# React + Vite
+# Southern Agentic Systems (`southernagenticsystems`)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Marketing site for **Southern Agentic Systems** — React + Vite, deployed to **Heroku** (static build + `serve`).
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Node.js** ≥ 20 (`nvm use` reads `.nvmrc`)
 
-## React Compiler
+## Local development
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+cd southernagenticsystems   # this folder (standalone repo root)
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+Open the URL Vite prints (usually `http://localhost:5173`).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm run lint
+npm run build    # production bundle → dist/
+npm run preview  # optional: test dist locally
+```
+
+## GitHub
+
+This repository is intended to live at **`origin`** (e.g. `github.com/kollisree1/sas`). From this folder:
+
+```bash
+git status
+git add .
+git commit -m "Your message"
+git push -u origin main
+```
+
+### GitHub Actions → Heroku
+
+Workflow: `.github/workflows/deploy-heroku.yml` runs on pushes to **`main`**.
+
+Repository secrets (**Settings → Secrets and variables → Actions**):
+
+| Secret           | Purpose                          |
+|-----------------|----------------------------------|
+| `HEROKU_API_KEY`| Heroku account API key           |
+| `HEROKU_EMAIL`  | Email you use to log into Heroku |
+
+The Heroku app name in the workflow is **`southernagenticsystems`** — change it there if your app name differs.
+
+## Heroku (manual deploy)
+
+From this repo:
+
+```bash
+git push heroku main:master
+```
+
+(`master` is the branch name Heroku often uses for the deployed slug.)
+
+## Production start
+
+Heroku runs `npm start` → `serve -s dist`; `heroku-postbuild` runs `npm run build`.

@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { SovereignStandardMark } from "./SovereignStandardMark";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -13,10 +15,17 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <a className="logo" href="#" onClick={close}>
-          <span className="logo-mark">SAS</span>
+        <Link
+          className="logo"
+          to="/"
+          onClick={close}
+          aria-label="Southern Agentic Systems — home (The Sovereign Standard)"
+        >
+          <span className="logo-mark" title="The Sovereign Standard — Southern Agentic Systems">
+            <SovereignStandardMark />
+          </span>
           <span className="logo-text">Southern Agentic Systems</span>
-        </a>
+        </Link>
         <button
           className="nav-toggle"
           type="button"
@@ -35,23 +44,20 @@ export function Header() {
         >
           <ul>
             <li>
-              <a href="#program" onClick={close}>
-                Program
-              </a>
+              <NavLink
+                to="/services"
+                className={({ isActive }) =>
+                  isActive ? "nav-services nav-services--active" : "nav-services"
+                }
+                onClick={close}
+                end
+              >
+                Services
+              </NavLink>
             </li>
             <li>
-              <a href="#approach" onClick={close}>
-                Approach
-              </a>
-            </li>
-            <li>
-              <a href="#audience" onClick={close}>
-                Who we serve
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="nav-cta" onClick={close}>
-                Talk to us
+              <a href="/#contact" className="nav-cta" onClick={close}>
+                Contact
               </a>
             </li>
           </ul>

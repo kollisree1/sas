@@ -1,0 +1,22 @@
+# Deploy default branch to Heroku when you push.
+# Repo secrets (Settings → Secrets → Actions): HEROKU_API_KEY, HEROKU_EMAIL
+
+name: Deploy to Heroku
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: akhileshns/heroku-deploy@v3.13.15
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: southernagenticsystems
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          branch: ${{ github.ref_name }}
