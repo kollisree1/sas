@@ -8,7 +8,9 @@ export function Footer() {
           © {new Date().getFullYear()} Southern Agentic Systems
         </p>
         <p className="footer-links">
-          <Link to="/services">Services</Link>
+          <Link to="/program">Program</Link>
+          {" · "}
+          <Link to="/curriculum">Curriculum</Link>
         </p>
         <p className="footer-meta">
           Architectural blueprint for the agentic era · SAS

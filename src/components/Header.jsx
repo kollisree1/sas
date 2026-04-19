@@ -45,18 +45,36 @@ export function Header() {
           <ul>
             <li>
               <NavLink
-                to="/services"
+                to="/program"
                 className={({ isActive }) =>
-                  isActive ? "nav-services nav-services--active" : "nav-services"
+                  isActive ? "nav-program nav-program--active" : "nav-program"
                 }
                 onClick={close}
                 end
               >
-                Services
+                Program
               </NavLink>
             </li>
             <li>
-              <a href="/#contact" className="nav-cta" onClick={close}>
+              <NavLink
+                to="/curriculum"
+                className={({ isActive }) =>
+                  isActive
+                    ? "nav-curriculum nav-curriculum--active"
+                    : "nav-curriculum"
+                }
+                onClick={close}
+                end
+              >
+                Curriculum
+              </NavLink>
+            </li>
+            <li>
+              <a
+                href="mailto:kolli.sree@gmail.com"
+                className="nav-cta"
+                onClick={close}
+              >
                 Contact
               </a>
             </li>

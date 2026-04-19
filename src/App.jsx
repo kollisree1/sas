@@ -1,7 +1,8 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "./layout/Layout";
+import { Curriculum } from "./pages/Curriculum";
 import { Home } from "./pages/Home";
-import { Services } from "./pages/Services";
+import { Program } from "./pages/Program";
 
 export default function App() {
   return (
@@ -9,7 +10,8 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="services" element={<Services />} />
+          <Route path="program" element={<Program />} />
+          <Route path="curriculum" element={<Curriculum />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
