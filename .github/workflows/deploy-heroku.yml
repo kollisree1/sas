@@ -20,3 +20,6 @@ jobs:
           heroku_app_name: southernagenticsystems
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
           branch: ${{ github.ref_name }}
+          # App must already exist on the Heroku account for HEROKU_API_KEY.
+          # Prevents `heroku create` when `git:remote` fails (wrong account / name taken).
+          dontautocreate: true
